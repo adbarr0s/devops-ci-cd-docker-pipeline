@@ -6,12 +6,11 @@ app = FastAPI(
     version="1.0.0",
     description="Simple FastAPI app to demonstrate CI/CD with Docker and GitHub Actions.",
 )
-
+app = FastAPI()
 
 @app.get("/")
-def home():
-    return {"message": "Hello from DevOps CI/CD Pipeline!"}
-
+def read_root():
+    return {"message": "Hello Adrix!"}
 
 @app.get("/health")
 def health():
