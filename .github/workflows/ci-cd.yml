@@ -12,6 +12,7 @@ jobs:
 
     env:
       IMAGE_NAME: adbarr0s/devops-ci-cd-docker-pipeline
+      PYTHONPATH: .   #  garante que "app" é encontrado
 
     steps:
       - name: Checkout code
@@ -29,7 +30,8 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest
+          echo "PYTHONPATH=$PYTHONPATH"
+          pytest -v
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
